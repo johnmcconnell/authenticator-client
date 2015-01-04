@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts
+    body:
+      encoding: UTF-8
+      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"new_username","password":"new_password"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '154'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:20:57 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"dcae6806b45ddab81dfdb7032d8fc469"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=POST; path=/
+      X-Request-Id:
+      - 9e4285a4-6818-461e-bf9d-400d1125200f
+      X-Runtime:
+      - '0.560246'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":2,"username":"new_username","created_at":"2015-01-04T20:20:57.569Z","updated_at":"2015-01-04T20:20:57.569Z"}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:20:58 GMT
+recorded_with: VCR 2.9.3

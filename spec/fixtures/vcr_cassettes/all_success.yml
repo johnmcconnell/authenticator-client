@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts?api_key=124ecd49-07fd-4553-a5cd-0178b7fa8b3f&api_password=IIoclO7kmQqJ1wixWrAuOA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:12:25 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d750f6d7ca4471b89f25e4d5c7fa8d78"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6fa7e194-92ad-4bee-a241-de113669389b
+      X-Runtime:
+      - '0.121109'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"accounts":[]}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:12:26 GMT
+recorded_with: VCR 2.9.3
