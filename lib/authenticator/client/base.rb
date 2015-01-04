@@ -34,7 +34,7 @@ module Authenticator
 
       def update(id, account)
         uri = account_path(id)
-        RestClient.post(
+        RestClient.put(
           uri,
           auth_params.merge(account.to_params).to_json,
           content_type: :json,
@@ -45,10 +45,7 @@ module Authenticator
       def destroy(id)
         uri = account_path(id)
         RestClient.delete(
-          uri,
-          auth_params.to_json,
-          content_type: :json,
-          accept: :json
+          uri, params: auth_params
         )
       end
 

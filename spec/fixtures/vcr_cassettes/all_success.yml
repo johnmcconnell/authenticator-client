@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 04 Jan 2015 20:12:25 GMT
+      - Sun, 04 Jan 2015 20:36:27 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -37,9 +37,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6fa7e194-92ad-4bee-a241-de113669389b
+      - 0c59d284-8ebb-4bbc-9077-a4485d9a5762
       X-Runtime:
-      - '0.121109'
+      - '0.102701'
       Transfer-Encoding:
       - chunked
       Via:
@@ -48,5 +48,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"accounts":[]}'
     http_version: 
-  recorded_at: Sun, 04 Jan 2015 20:12:26 GMT
+  recorded_at: Sun, 04 Jan 2015 20:36:28 GMT
 recorded_with: VCR 2.9.3

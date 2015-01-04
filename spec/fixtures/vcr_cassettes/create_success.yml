@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 04 Jan 2015 20:20:57 GMT
+      - Sun, 04 Jan 2015 20:36:27 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -37,22 +37,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"dcae6806b45ddab81dfdb7032d8fc469"'
+      - '"f26adbb79ceaf5aaa609ed1819b600b6"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
       - request_method=POST; path=/
       X-Request-Id:
-      - 9e4285a4-6818-461e-bf9d-400d1125200f
+      - b554584e-ac2f-45ee-859e-d89f414c7aed
       X-Runtime:
-      - '0.560246'
+      - '0.201978'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":2,"username":"new_username","created_at":"2015-01-04T20:20:57.569Z","updated_at":"2015-01-04T20:20:57.569Z"}'
+      string: '{"id":6,"username":"new_username","created_at":"2015-01-04T20:36:28.339Z","updated_at":"2015-01-04T20:36:28.339Z"}'
     http_version: 
-  recorded_at: Sun, 04 Jan 2015 20:20:58 GMT
+  recorded_at: Sun, 04 Jan 2015 20:36:28 GMT
 recorded_with: VCR 2.9.3
