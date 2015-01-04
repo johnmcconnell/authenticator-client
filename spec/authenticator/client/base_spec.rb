@@ -52,11 +52,11 @@ describe Authenticator::Client::Base do
   end
 
   describe '#show' do
-    it 'fetches all the accounts' do
-      VCR.use_cassette('index_success') do
-        response = JSON.parse(subject.all)
+    it 'fetches show the accounts' do
+      VCR.use_cassette('show_success') do
+        response = JSON.parse(subject.show(2))
 
-        expect(response['accounts']).not_to be nil
+        expect(response['username']).to eq 'new_username'
       end
     end
   end
