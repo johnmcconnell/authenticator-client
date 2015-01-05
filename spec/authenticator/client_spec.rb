@@ -21,7 +21,7 @@ describe Authenticator::Client do
     it 'registers a configuration to be used when invoked with ::new' do
       described_class.register_config(:test, config)
       client = described_class.new(:test)
-      expect(client.host).to eq config[:host]
+      expect(client.pather.host).to eq config[:host]
       expect(client.api_key).to eq config[:api_key]
       expect(client.api_password).to eq config[:api_password]
     end
