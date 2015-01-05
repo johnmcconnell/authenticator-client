@@ -77,6 +77,9 @@ describe Authenticator::Client::Base do
         response = subject.show(6).result
 
         expect(response['username']).to eq 'new_username'
+        expect(response['id']).to be 6
+        expect(response['created_at']).to eq '2015-01-04T20:36:28.339Z'
+        expect(response['updated_at']).to eq '2015-01-04T20:36:28.339Z'
       end
     end
   end
