@@ -41,13 +41,20 @@ Authenticator::Client.new(:config_key)
 ### Creating an account:
 
 ```
-client.create(Account.new(username, password)
+client.create(Account.new(username, password))
 #=> '{
   "id":6,
   "username":"new_username",
   "created_at":"2015-01-04T20:36:28.339Z",
   "updated_at":"2015-01-04T20:36:28.339Z"
 }'
+```
+
+### Authenticating an account:
+
+```
+client.authenticate(account)
+#=> '{"authenticated":true}'
 ```
 
 ### Reading accounts:
