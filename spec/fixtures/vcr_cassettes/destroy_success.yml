@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts
+    body:
+      encoding: UTF-8
+      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"new_username_2","password":"new_password_2"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '158'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:48:55 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"03258793b9ebad43ea73e9565d861f80"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=POST; path=/
+      X-Request-Id:
+      - a764b58c-eda2-4770-9ef3-87fb2bf7854c
+      X-Runtime:
+      - '0.201380'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":10,"username":"new_username_2","created_at":"2015-01-04T20:48:55.695Z","updated_at":"2015-01-04T20:48:55.695Z"}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:48:55 GMT
+- request:
+    method: delete
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts/10?api_key=124ecd49-07fd-4553-a5cd-0178b7fa8b3f&api_password=IIoclO7kmQqJ1wixWrAuOA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:48:55 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"db2883d5f032d326e56b7f4d896e51e9"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=DELETE; path=/
+      X-Request-Id:
+      - a4863ea3-30e9-48b1-91c9-628a1b10a858
+      X-Runtime:
+      - '0.119341'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":10}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:48:55 GMT
+recorded_with: VCR 2.9.3

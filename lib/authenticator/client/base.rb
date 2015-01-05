@@ -32,6 +32,16 @@ module Authenticator
         )
       end
 
+      def authenticate(account)
+        uri = authenticate_path
+        RestClient.post(
+          uri,
+          auth_params.merge(account.to_params).to_json,
+          content_type: :json,
+          accept: :json
+        )
+      end
+
       def update(id, account)
         uri = account_path(id)
         RestClient.put(
@@ -50,6 +60,10 @@ module Authenticator
       end
 
       protected
+
+      def authenticate_path
+        "#{host}/api/v1/authentications/authenticate"
+      end
 
       def account_path(id = nil)
         if id.nil?

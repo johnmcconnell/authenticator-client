@@ -48,6 +48,18 @@ describe Authenticator::Client::Base do
     end
   end
 
+  describe '#authenticate' do
+    it 'creates an account' do
+      VCR.use_cassette('authenticate_success') do
+        response = JSON.parse(
+          subject.authenticate(account)
+        )
+
+        expect(response['authenticated']).to eq true
+      end
+    end
+  end
+
   describe '#create' do
     it 'creates an account' do
       VCR.use_cassette('create_success') do

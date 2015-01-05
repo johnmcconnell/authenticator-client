@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts
+    body:
+      encoding: UTF-8
+      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"new_username_1","password":"new_password_1"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '158'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:36:28 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"f21a93c307ee794341d6e751a83b5c44"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=POST; path=/
+      X-Request-Id:
+      - 60e75ec5-53eb-4552-8e86-29f2271351ee
+      X-Runtime:
+      - '0.199750'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":7,"username":"new_username_1","created_at":"2015-01-04T20:36:28.949Z","updated_at":"2015-01-04T20:36:28.949Z"}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:36:28 GMT
+- request:
+    method: put
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts/7
+    body:
+      encoding: UTF-8
+      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"updated_username","password":"updated_password"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '162'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Sun, 04 Jan 2015 20:36:28 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"80904310aa88a944d24696f6d4c81fa1"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=PUT; path=/
+      X-Request-Id:
+      - c82ee34e-2392-4999-a65b-e646f09a8495
+      X-Runtime:
+      - '0.253034'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":7,"username":"updated_username","created_at":"2015-01-04T20:36:28.949Z","updated_at":"2015-01-04T20:36:29.353Z"}'
+    http_version: 
+  recorded_at: Sun, 04 Jan 2015 20:36:29 GMT
+recorded_with: VCR 2.9.3
