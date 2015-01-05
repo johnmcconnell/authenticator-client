@@ -12,3 +12,5 @@ before_script: "bundle update"
 
 script: "bundle exec rake spec"
 
+notifications:
+  email: false
