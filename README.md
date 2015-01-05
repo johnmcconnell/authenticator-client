@@ -1,8 +1,10 @@
 # Authenticator::Client
-[![Build
-Status](https://travis-ci.org/johnmcconnell/authenticator-client.svg?branch=master)](https://travis-ci.org/johnmcconnell/authenticator-client)
+[![Build Status](https://travis-ci.org/johnmcconnell/authenticator-client.svg?branch=master)]
+(https://travis-ci.org/johnmcconnell/authenticator-client)
 
-TODO: Write a gem description
+## Description
+This gem is designed to be used with
+[Account Authenticator](https://account-authenticator.herokuapp.com/)
 
 ## Installation
 
