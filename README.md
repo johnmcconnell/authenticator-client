@@ -24,7 +24,63 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Creating a client:
+
+```
+config = {
+  api_key: 'api_key',
+  api_password: 'api_password',
+  host: 'http://account-authenticator.herokuapp.com'
+}
+
+Authenticator::Client.register_config(:config_key, config)
+Authenticator::Client.new(:config_key)
+
+```
+
+### Creating an account:
+
+```
+client.create(Account.new(username, password)
+#=> '{
+  "id":6,
+  "username":"new_username",
+  "created_at":"2015-01-04T20:36:28.339Z",
+  "updated_at":"2015-01-04T20:36:28.339Z"
+}'
+```
+
+### Reading accounts:
+
+```
+client.all
+#=> '{"accounts":[
+  { "id":6,
+    "username":"new_username",
+    "created_at":"2015-01-04T20:36:28.339Z",
+    "updated_at":"2015-01-04T20:36:28.339Z" }
+]}'
+
+```
+
+### Updating an account:
+
+```
+client.update(id, account)
+#=> '{
+  "id":7,
+  "username":"new_username_1",
+  "created_at":"2015-01-04T20:36:28.949Z",
+  "updated_at":"2015-01-04T20:36:28.949Z"
+}'
+```
+
+### Deleting an account:
+
+```
+client.destroy(id)
+#=> '{"id":10}'
+```
 
 ## Contributing
 
