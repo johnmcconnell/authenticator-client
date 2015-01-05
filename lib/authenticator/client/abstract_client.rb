@@ -12,14 +12,16 @@ module Authenticator
         validate_variables
       end
 
-      def all
+      def index
         uri = request_path
-        RestClient.get uri, params: auth_params
+        response = RestClient.get uri, params: auth_params
+        AbstractResponses::Index.new(reponse.body, response.code)
       end
 
       def show(id)
         uri = request_path(id)
         RestClient.get uri, params: auth_params
+        AbstractResponses::Show.new(reponse.body, response.code)
       end
 
       def create(model)
@@ -30,6 +32,7 @@ module Authenticator
           content_type: :json,
           accept: :json
         )
+        AbstractResponses::Create.new(reponse.body, response.code)
       end
 
       def update(id, model)
@@ -40,6 +43,7 @@ module Authenticator
           content_type: :json,
           accept: :json
         )
+        AbstractResponses::Update.new(reponse.body, response.code)
       end
 
       def destroy(id)
@@ -47,6 +51,7 @@ module Authenticator
         RestClient.delete(
           uri, params: auth_params
         )
+        AbstractResponses::Destroy.new(reponse.body, response.code)
       end
 
       protected
