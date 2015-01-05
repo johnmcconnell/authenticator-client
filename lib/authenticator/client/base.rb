@@ -1,5 +1,6 @@
 require 'rest_client'
 require_relative 'abstract_client'
+require_relative 'abstract_responses/response'
 
 module Authenticator
   module Client
@@ -12,11 +13,15 @@ module Authenticator
 
       def authenticate(account)
         uri = authenticate_path
-        RestClient.post(
+        response = RestClient.post(
           uri,
           auth_params.merge(account.to_params).to_json,
           content_type: :json,
           accept: :json
+        )
+        AbstractResponses::Response.new(
+          response.body,
+          response.code
         )
       end
 

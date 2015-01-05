@@ -1,4 +1,9 @@
 require 'rest_client'
+require_relative 'abstract_responses/index'
+require_relative 'abstract_responses/show'
+require_relative 'abstract_responses/create'
+require_relative 'abstract_responses/update'
+require_relative 'abstract_responses/destroy'
 
 module Authenticator
   module Client
@@ -15,43 +20,43 @@ module Authenticator
       def index
         uri = request_path
         response = RestClient.get uri, params: auth_params
-        AbstractResponses::Index.new(reponse.body, response.code)
+        AbstractResponses::Index.new(response.body, response.code)
       end
 
       def show(id)
         uri = request_path(id)
-        RestClient.get uri, params: auth_params
-        AbstractResponses::Show.new(reponse.body, response.code)
+        response = RestClient.get uri, params: auth_params
+        AbstractResponses::Show.new(response.body, response.code)
       end
 
       def create(model)
         uri = request_path
-        RestClient.post(
+        response = RestClient.post(
           uri,
           auth_params.merge(create_params(model)).to_json,
           content_type: :json,
           accept: :json
         )
-        AbstractResponses::Create.new(reponse.body, response.code)
+        AbstractResponses::Create.new(response.body, response.code)
       end
 
       def update(id, model)
         uri = request_path(id)
-        RestClient.put(
+        response = RestClient.put(
           uri,
           auth_params.merge(update_params(model)).to_json,
           content_type: :json,
           accept: :json
         )
-        AbstractResponses::Update.new(reponse.body, response.code)
+        AbstractResponses::Update.new(response.body, response.code)
       end
 
       def destroy(id)
         uri = request_path(id)
-        RestClient.delete(
+        response = RestClient.delete(
           uri, params: auth_params
         )
-        AbstractResponses::Destroy.new(reponse.body, response.code)
+        AbstractResponses::Destroy.new(response.body, response.code)
       end
 
       protected

@@ -41,7 +41,7 @@ describe Authenticator::Client::Base do
   describe '#all' do
     it 'fetches all the accounts' do
       VCR.use_cassette('all_success') do
-        response = JSON.parse(subject.all)
+        response = subject.index.result
 
         expect(response['accounts']).not_to be nil
       end
@@ -51,9 +51,7 @@ describe Authenticator::Client::Base do
   describe '#authenticate' do
     it 'creates an account' do
       VCR.use_cassette('authenticate_success') do
-        response = JSON.parse(
-          subject.authenticate(account)
-        )
+        response = subject.authenticate(account).result
 
         expect(response['authenticated']).to eq true
       end
@@ -63,9 +61,7 @@ describe Authenticator::Client::Base do
   describe '#create' do
     it 'creates an account' do
       VCR.use_cassette('create_success') do
-        response = JSON.parse(
-          subject.create(account)
-        )
+        response = subject.create(account).result
 
         expect(response['username']).to eq 'new_username'
         expect(response['id']).not_to be nil
@@ -78,7 +74,7 @@ describe Authenticator::Client::Base do
   describe '#show' do
     it 'fetches the account' do
       VCR.use_cassette('show_success') do
-        response = JSON.parse(subject.show(6))
+        response = subject.show(6).result
 
         expect(response['username']).to eq 'new_username'
       end
@@ -88,8 +84,8 @@ describe Authenticator::Client::Base do
   describe '#update' do
     it 'updates the account' do
       VCR.use_cassette('update_success') do
-        id = JSON.parse(subject.create(new_account))['id']
-        response = JSON.parse(subject.update(id, updated_account))
+        id = subject.create(new_account).result['id']
+        response = subject.update(id, updated_account).result
 
         expect(response['username']).to eq updated_account.username
         expect(response['id']).to eq id
@@ -100,8 +96,8 @@ describe Authenticator::Client::Base do
   describe '#destroy' do
     it 'destroys the account' do
       VCR.use_cassette('destroy_success') do
-        id = JSON.parse(subject.create(destroy_account))['id']
-        response = JSON.parse(subject.destroy(id))
+        id = subject.create(destroy_account).result['id']
+        response = subject.destroy(id).result
 
         expect(response['id']).to eq id
       end

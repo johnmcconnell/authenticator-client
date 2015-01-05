@@ -10,13 +10,13 @@ module Authenticator
         end
 
         def result
-          parse_response
+          parse_json
         end
 
         protected
 
-        def parse_response
-          @parse_reponse ||= JSON.parse(body)
+        def parse_json
+          @parse_json ||= JSON.parse(body)
         end
       end
     end
