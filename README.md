@@ -1,4 +1,6 @@
 # Authenticator::Client
+[![Build
+Status](https://travis-ci.org/johnmcconnell/authenticator-client.svg?branch=master)](https://travis-ci.org/johnmcconnell/authenticator-client)
 
 TODO: Write a gem description
 
