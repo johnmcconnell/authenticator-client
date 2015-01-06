@@ -9,8 +9,12 @@ module Authenticator
           @code = code
         end
 
-        def result
+        def json
           parse_json
+        end
+
+        def success?
+          code >= 200 && code < 300
         end
 
         protected

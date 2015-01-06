@@ -1,6 +1,6 @@
 require 'rest_client'
 require_relative 'abstract_client'
-require_relative 'abstract_responses/response'
+require_relative 'authenticate_response'
 
 module Authenticator
   module Client
@@ -19,13 +19,14 @@ module Authenticator
           content_type: :json,
           accept: :json
         )
-        AbstractResponses::Response.new(
-          response.body,
-          response.code
-        )
+        authenticate_response_factory.new(response.body, response.code)
       end
 
       protected
+
+      def authenticate_response_factory
+        AuthenticateResponse
+      end
 
       def authenticate_path
         "#{pather.host}/api/v1/authentications/authenticate"

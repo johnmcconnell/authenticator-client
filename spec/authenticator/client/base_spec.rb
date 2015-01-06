@@ -41,7 +41,7 @@ describe Authenticator::Client::Base do
   describe '#all' do
     it 'fetches all the accounts' do
       VCR.use_cassette('all_success') do
-        response = subject.index.result
+        response = subject.index.json
 
         expect(response['accounts']).not_to be nil
       end
@@ -51,9 +51,10 @@ describe Authenticator::Client::Base do
   describe '#authenticate' do
     it 'creates an account' do
       VCR.use_cassette('authenticate_success') do
-        response = subject.authenticate(account).result
+        response = subject.authenticate(account)
 
-        expect(response['authenticated']).to eq true
+        expect(response.json['authenticated']).to eq true
+        expect(response.auth_success?).to eq true
       end
     end
   end
@@ -61,7 +62,7 @@ describe Authenticator::Client::Base do
   describe '#create' do
     it 'creates an account' do
       VCR.use_cassette('create_success') do
-        response = subject.create(account).result
+        response = subject.create(account).json
 
         expect(response['username']).to eq 'new_username'
         expect(response['id']).not_to be nil
@@ -74,7 +75,7 @@ describe Authenticator::Client::Base do
   describe '#show' do
     it 'fetches the account' do
       VCR.use_cassette('show_success') do
-        response = subject.show(6).result
+        response = subject.show(6).json
 
         expect(response['username']).to eq 'new_username'
         expect(response['id']).to be 6
@@ -87,8 +88,8 @@ describe Authenticator::Client::Base do
   describe '#update' do
     it 'updates the account' do
       VCR.use_cassette('update_success') do
-        id = subject.create(new_account).result['id']
-        response = subject.update(id, updated_account).result
+        id = subject.create(new_account).json['id']
+        response = subject.update(id, updated_account).json
 
         expect(response['username']).to eq updated_account.username
         expect(response['id']).to eq id
@@ -99,8 +100,8 @@ describe Authenticator::Client::Base do
   describe '#destroy' do
     it 'destroys the account' do
       VCR.use_cassette('destroy_success') do
-        id = subject.create(destroy_account).result['id']
-        response = subject.destroy(id).result
+        id = subject.create(destroy_account).json['id']
+        response = subject.destroy(id).json
 
         expect(response['id']).to eq id
       end
