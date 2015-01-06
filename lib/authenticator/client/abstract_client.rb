@@ -20,13 +20,13 @@ module Authenticator
       def index
         uri = request_path
         response = RestClient.get uri, params: auth_params
-        AbstractResponses::Index.new(response.body, response.code)
+        index_response_factory.new(response.body, response.code)
       end
 
       def show(id)
         uri = request_path(id)
         response = RestClient.get uri, params: auth_params
-        AbstractResponses::Show.new(response.body, response.code)
+        show_response_factory.new(response.body, response.code)
       end
 
       def create(model)
@@ -37,7 +37,7 @@ module Authenticator
           content_type: :json,
           accept: :json
         )
-        AbstractResponses::Create.new(response.body, response.code)
+        create_response_factory.new(response.body, response.code)
       end
 
       def update(id, model)
@@ -48,7 +48,7 @@ module Authenticator
           content_type: :json,
           accept: :json
         )
-        AbstractResponses::Update.new(response.body, response.code)
+        update_response_factory.new(response.body, response.code)
       end
 
       def destroy(id)
@@ -56,10 +56,30 @@ module Authenticator
         response = RestClient.delete(
           uri, params: auth_params
         )
-        AbstractResponses::Destroy.new(response.body, response.code)
+        destroy_response_factory.new(response.body, response.code)
       end
 
       protected
+
+      def index_response_factory
+        AbstractResponses::Index
+      end
+
+      def show_response_factory
+        AbstractResponses::Show
+      end
+
+      def create_response_factory
+        AbstractResponses::Create
+      end
+
+      def update_response_factory
+        AbstractResponses::Update
+      end
+
+      def destroy_response_factory
+        AbstractResponses::Destroy
+      end
 
       def create_params(model)
         model.to_json
