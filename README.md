@@ -1,6 +1,8 @@
 # Authenticator::Client
 [![Build Status](https://travis-ci.org/johnmcconnell/authenticator-client.svg?branch=master)]
 (https://travis-ci.org/johnmcconnell/authenticator-client)
+[![Coverage
+Status](https://coveralls.io/repos/johnmcconnell/authenticator-client/badge.png?branch=master)](https://coveralls.io/r/johnmcconnell/authenticator-client?branch=master)
 
 ## Description
 This gem is designed to be used with
