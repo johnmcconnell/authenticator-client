@@ -15,7 +15,7 @@ module Authenticator
           }
         }
       end
-      alias_method :to_json, :to_params
+      alias_method :to_h, :to_params
     end
   end
 end
