@@ -1,8 +1,8 @@
-require_relative 'abstract_responses/response'
+require 'json_client'
 
 module Authenticator
   module Client
-    class AuthenticateResponse < AbstractResponses::Response
+    class AuthenticateResponse < JsonClient::BaseResponses::Response
       def initialize(body, code)
         super
       end
