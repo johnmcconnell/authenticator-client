@@ -75,10 +75,10 @@ describe Authenticator::Client::Base do
   describe '#show' do
     it 'fetches the account' do
       VCR.use_cassette('show_success') do
-        response = subject.show(6).json
+        response = subject.show(1).json
 
         expect(response['username']).to eq 'new_username'
-        expect(response['id']).to be 6
+        expect(response['id']).to be 1
         expect(response['created_at']).to eq '2015-01-04T20:36:28.339Z'
         expect(response['updated_at']).to eq '2015-01-04T20:36:28.339Z'
       end
