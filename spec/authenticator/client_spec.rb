@@ -17,6 +17,10 @@ describe Authenticator::Client do
     }
   end
 
+  let(:client) do
+    described_class.new(:test)
+  end
+
   describe '::register' do
     it 'registers a configuration to be used when invoked with ::new' do
       described_class.register_config(:test, config)
@@ -24,6 +28,16 @@ describe Authenticator::Client do
       expect(client.pather.host).to eq config[:host]
       expect(client.api_key).to eq config[:api_key]
       expect(client.api_password).to eq config[:api_password]
+    end
+  end
+
+  describe '::authenticate_with!' do
+    it 'forces the authenticate client to return the param passed in' do
+      described_class.authenticate_with!(username: 'hello')
+      client = described_class.new(:test)
+
+      expect(client.authenticate(nil).authenticated?).to be true
+      expect(client.authenticate(nil).account.username).to eq 'hello'
     end
   end
 end

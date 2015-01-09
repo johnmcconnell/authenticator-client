@@ -55,6 +55,13 @@ describe Authenticator::Client::Base do
 
         expect(response.json['authenticated']).to eq true
         expect(response.auth_success?).to eq true
+
+        account = response.account
+
+        expect(account.username).to eq 'new_username'
+        expect(account.id).to be 1
+        expect(account.created_at).to eq '2015-01-08T05:02:05.699Z'
+        expect(account.updated_at).to eq '2015-01-08T05:02:05.699Z'
       end
     end
   end
@@ -75,12 +82,13 @@ describe Authenticator::Client::Base do
   describe '#show' do
     it 'fetches the account' do
       VCR.use_cassette('show_success') do
-        response = subject.show(1).json
+        response = subject.show(1)
+        json = response.json
 
-        expect(response['username']).to eq 'new_username'
-        expect(response['id']).to be 1
-        expect(response['created_at']).to eq '2015-01-04T20:36:28.339Z'
-        expect(response['updated_at']).to eq '2015-01-04T20:36:28.339Z'
+        expect(json['username']).to eq 'new_username'
+        expect(json['id']).to be 1
+        expect(json['created_at']).to eq '2015-01-08T05:02:05.699Z'
+        expect(json['updated_at']).to eq '2015-01-08T05:02:05.699Z'
       end
     end
   end

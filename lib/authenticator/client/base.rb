@@ -5,7 +5,7 @@ require_relative 'authenticate_response'
 module Authenticator
   module Client
     class Base < JsonClient::Base
-      def initialize(config)
+      def initialize(config, account)
         super(
           JsonClient::Pather.new(config[:host], 'api/v1', 'accounts'),
           config
@@ -13,6 +13,12 @@ module Authenticator
       end
 
       def authenticate(account)
+        request_authentication(account)
+      end
+
+      protected
+
+      def request_authentication(account)
         uri = authenticate_path
         response = RestClient.post(
           uri,
@@ -22,8 +28,6 @@ module Authenticator
         )
         AuthenticateResponse.new(response.body, response.code)
       end
-
-      protected
 
       def authenticate_path
         "#{pather.host}/api/v1/authentications/authenticate"

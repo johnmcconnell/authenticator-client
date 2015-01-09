@@ -7,8 +7,16 @@ module Authenticator
         super
       end
 
-      def auth_success?
+      def account
+        Account.from_json(json)
+      end
+
+      def authenticated?
         json['authenticated'] == true
+      end
+
+      def auth_success?
+        authenticated?
       end
     end
   end

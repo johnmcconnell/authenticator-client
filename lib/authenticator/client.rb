@@ -9,12 +9,26 @@ end
 module Authenticator
   module Client
     @@configs = {}
+    @@stubbed_account = nil
+
     def self.register_config(key, config)
       @@configs[key] = config
     end
 
     def self.new(key)
-      Base.new(@@configs[key])
+      if @@stubbed_account
+        Mock.new(@@stubbed_account)
+      else
+        Base.new(@@configs[key], @@stubbed_account)
+      end
+    end
+
+    def self.reset!
+      @@stubbed_account = nil
+    end
+
+    def self.authenticate_with!(account)
+      @@stubbed_account = account
     end
   end
 end
