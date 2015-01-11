@@ -23,6 +23,11 @@ module Authenticator
       end
     end
 
+
+    def self.configs
+      @@configs
+    end
+
     def self.reset!
       @@stubbed_account = nil
     end
