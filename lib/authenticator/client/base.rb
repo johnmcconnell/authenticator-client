@@ -22,11 +22,11 @@ module Authenticator
         uri = authenticate_path
         response = RestClient.post(
           uri,
-          auth_params.merge(account.to_h).to_json,
+          auth_params.merge(account: account.to_h).to_json,
           content_type: :json,
           accept: :json
         )
-        AuthenticateResponse.new(response.body, response.code)
+        AuthenticateResponse.new(response)
       end
 
       def authenticate_path

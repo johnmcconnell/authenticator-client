@@ -1,4 +1,5 @@
 require 'json'
+require 'attr_init'
 require_relative 'authenticate_response'
 
 module Authenticator
@@ -16,11 +17,16 @@ module Authenticator
       protected
 
       def mock_response
-        AuthenticateResponse.new(
-          params.merge({ authenticated: true }).to_json,
-          200
+        response_object = MockResponse.new(
+          body: params.merge({ authenticated: true }).to_json,
+          code: 200
         )
+        AuthenticateResponse.new(response_object)
       end
+    end
+
+    class MockResponse
+      reader_struct :body, :code
     end
   end
 end

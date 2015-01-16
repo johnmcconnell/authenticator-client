@@ -33,11 +33,11 @@ describe Authenticator::Client do
 
   describe '::authenticate_with!' do
     it 'forces the authenticate client to return the param passed in' do
-      described_class.authenticate_with!(username: 'hello')
+      described_class.authenticate_with!(username: 'id')
       client = described_class.new(:test)
 
       expect(client.authenticate(nil).authenticated?).to be true
-      expect(client.authenticate(nil).account.username).to eq 'hello'
+      expect(client.authenticate(nil).account.id).to eq 'hello'
     end
   end
 end

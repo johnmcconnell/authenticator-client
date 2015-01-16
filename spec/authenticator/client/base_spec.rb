@@ -17,20 +17,39 @@ describe Authenticator::Client::Base do
     }
   end
 
+  let(:account_params) do
+    { id: 0, password: 'new_password' }
+  end
+
+  let(:new_account_params) do
+
+    { id: 1, password: 'new_password_1' }
+  end
+
+  let(:destroy_account_params) do
+
+    { id: 2, password: 'new_password_2' }
+  end
+
+  let(:updated_account_params) do
+
+    { id: 3, password: 'new_password' }
+  end
+
   let(:account) do
-    Authenticator::Client::Account.new('new_username', 'new_password')
+    Authenticator::Client::Account.new(account_params)
   end
 
   let(:new_account) do
-    Authenticator::Client::Account.new('new_username_1', 'new_password_1')
+    Authenticator::Client::Account.new(new_account_params)
   end
 
   let(:destroy_account) do
-    Authenticator::Client::Account.new('new_username_2', 'new_password_2')
+    Authenticator::Client::Account.new(destroy_account_params)
   end
 
   let(:updated_account) do
-    Authenticator::Client::Account.new('updated_username', 'updated_password')
+    Authenticator::Client::Account.new(updated_account_params)
   end
 
   subject do
@@ -51,14 +70,13 @@ describe Authenticator::Client::Base do
   describe '#authenticate' do
     it 'creates an account' do
       VCR.use_cassette('authenticate_success') do
-        response = subject.authenticate(account)
+        response = subject.authenticate(account_params)
 
         expect(response.json['authenticated']).to eq true
-        expect(response.auth_success?).to eq true
+        expect(response.authenticated?).to eq true
 
         account = response.account
 
-        expect(account.username).to eq 'new_username'
         expect(account.id).to be 1
         expect(account.created_at).to eq '2015-01-08T05:02:05.699Z'
         expect(account.updated_at).to eq '2015-01-08T05:02:05.699Z'
@@ -71,7 +89,6 @@ describe Authenticator::Client::Base do
       VCR.use_cassette('create_success') do
         response = subject.create(account).json
 
-        expect(response['username']).to eq 'new_username'
         expect(response['id']).not_to be nil
         expect(response['created_at']).not_to be nil
         expect(response['updated_at']).not_to be nil
@@ -85,7 +102,6 @@ describe Authenticator::Client::Base do
         response = subject.show(1)
         json = response.json
 
-        expect(json['username']).to eq 'new_username'
         expect(json['id']).to be 1
         expect(json['created_at']).to eq '2015-01-08T05:02:05.699Z'
         expect(json['updated_at']).to eq '2015-01-08T05:02:05.699Z'
@@ -99,7 +115,6 @@ describe Authenticator::Client::Base do
         id = subject.create(new_account).json['id']
         response = subject.update(id, updated_account).json
 
-        expect(response['username']).to eq updated_account.username
         expect(response['id']).to eq id
       end
     end

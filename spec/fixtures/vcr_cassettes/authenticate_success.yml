@@ -5,7 +5,7 @@ http_interactions:
     uri: http://account-authenticator.herokuapp.com/api/v1/authentications/authenticate
     body:
       encoding: UTF-8
-      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"new_username","password":"new_password"}}'
+      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","id":0,"password":"new_password"}'
     headers:
       Accept:
       - application/json
@@ -14,18 +14,18 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '154'
+      - '123'
       User-Agent:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 406
+      message: Not Acceptable
     headers:
       Server:
       - Cowboy
       Date:
-      - Fri, 09 Jan 2015 04:12:09 GMT
+      - Fri, 16 Jan 2015 04:57:58 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -36,23 +36,21 @@ http_interactions:
       - nosniff
       Content-Type:
       - application/json; charset=utf-8
-      Etag:
-      - '"325c5f8d5ad864f87bf6934a9235559a"'
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Set-Cookie:
       - request_method=POST; path=/
       X-Request-Id:
-      - cead9f36-d992-4375-878d-a0707546fd9d
+      - e530b3a8-adcf-4878-a03f-7a4e52f137cf
       X-Runtime:
-      - '0.355233'
+      - '0.243669'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"authenticated":true,"id":1,"username":"new_username","created_at":"2015-01-08T05:02:05.699Z","updated_at":"2015-01-08T05:02:05.699Z"}'
+      string: '{"message":"missing parameters"}'
     http_version: 
-  recorded_at: Fri, 09 Jan 2015 04:12:09 GMT
+  recorded_at: Fri, 16 Jan 2015 04:57:59 GMT
 recorded_with: VCR 2.9.3

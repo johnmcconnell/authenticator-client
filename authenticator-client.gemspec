@@ -18,8 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+
+  spec.add_dependency 'attr_init', '~> 0.0.4'
   spec.add_dependency 'rest-client', '~> 1.7.2'
-  spec.add_dependency 'json_client', '~> 0.0.1'
+  spec.add_dependency 'json_client', '~> 0.1.2'
 
   spec.add_development_dependency "simplecov", "~> 0.8.0"
   spec.add_development_dependency "coveralls", "~> 0.7.0"
