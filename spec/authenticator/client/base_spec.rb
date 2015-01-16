@@ -11,8 +11,8 @@ end
 describe Authenticator::Client::Base do
   let(:config) do
     {
-      api_key: '124ecd49-07fd-4553-a5cd-0178b7fa8b3f',
-      api_password: 'IIoclO7kmQqJ1wixWrAuOA',
+      api_key: 'apptest',
+      api_password: 'password',
       host: 'http://account-authenticator.herokuapp.com'
     }
   end
@@ -70,14 +70,14 @@ describe Authenticator::Client::Base do
   describe '#authenticate' do
     it 'creates an account' do
       VCR.use_cassette('authenticate_success') do
-        response = subject.authenticate(account_params)
+        response = subject.authenticate({ id: 4, password: 'new_password' })
 
         expect(response.json['authenticated']).to eq true
         expect(response.authenticated?).to eq true
 
         account = response.account
 
-        expect(account.id).to be 1
+        expect(account.id).to be 4
         expect(account.created_at).to eq '2015-01-08T05:02:05.699Z'
         expect(account.updated_at).to eq '2015-01-08T05:02:05.699Z'
       end

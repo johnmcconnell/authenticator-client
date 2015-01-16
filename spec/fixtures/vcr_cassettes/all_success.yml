@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://account-authenticator.herokuapp.com/api/v1/accounts?api_key=124ecd49-07fd-4553-a5cd-0178b7fa8b3f&api_password=IIoclO7kmQqJ1wixWrAuOA
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts?api_key=apptest&api_password=password
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 08 Jan 2015 05:02:04 GMT
+      - Fri, 16 Jan 2015 05:15:50 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -37,9 +37,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2569aa6a-5e15-44e3-a33d-01ec77d9d407
+      - 9914a007-64b7-4b2d-9955-03d5d8580a13
       X-Runtime:
-      - '0.110975'
+      - '0.678205'
       Transfer-Encoding:
       - chunked
       Via:
@@ -48,5 +48,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"accounts":[]}'
     http_version: 
-  recorded_at: Thu, 08 Jan 2015 05:02:05 GMT
+  recorded_at: Fri, 16 Jan 2015 05:15:50 GMT
 recorded_with: VCR 2.9.3

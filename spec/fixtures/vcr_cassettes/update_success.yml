@@ -5,7 +5,7 @@ http_interactions:
     uri: http://account-authenticator.herokuapp.com/api/v1/accounts
     body:
       encoding: UTF-8
-      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"new_username_1","password":"new_password_1"}}'
+      string: '{"api_key":"apptest","api_password":"password","account":{"id":1,"password":"new_password_1"}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '158'
+      - '94'
       User-Agent:
       - Ruby
   response:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 08 Jan 2015 05:02:05 GMT
+      - Fri, 16 Jan 2015 05:15:52 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -37,30 +37,30 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"33556d94e07273e44b663a6dec89c743"'
+      - '"3b1e374dac9545e431a31490c2494465"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
       - request_method=POST; path=/
       X-Request-Id:
-      - 042fd587-9b01-4522-84d6-3ac26f399954
+      - ef78bc84-b5f7-4a60-a9b7-8ade31f674f3
       X-Runtime:
-      - '0.212409'
+      - '0.282725'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":2,"username":"new_username_1","created_at":"2015-01-08T05:02:06.362Z","updated_at":"2015-01-08T05:02:06.362Z"}'
+      string: '{"id":2,"created_at":"2015-01-16T05:15:52.490Z","updated_at":"2015-01-16T05:15:52.490Z"}'
     http_version: 
-  recorded_at: Thu, 08 Jan 2015 05:02:06 GMT
+  recorded_at: Fri, 16 Jan 2015 05:15:53 GMT
 - request:
     method: put
     uri: http://account-authenticator.herokuapp.com/api/v1/accounts/2
     body:
       encoding: UTF-8
-      string: '{"api_key":"124ecd49-07fd-4553-a5cd-0178b7fa8b3f","api_password":"IIoclO7kmQqJ1wixWrAuOA","account":{"username":"updated_username","password":"updated_password"}}'
+      string: '{"api_key":"apptest","api_password":"password","account":{"id":3,"password":"new_password"}}'
     headers:
       Accept:
       - application/json
@@ -69,7 +69,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '162'
+      - '92'
       User-Agent:
       - Ruby
   response:
@@ -80,7 +80,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 08 Jan 2015 05:02:06 GMT
+      - Fri, 16 Jan 2015 05:15:52 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -92,22 +92,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"36e97d567c634ce708473564e82064b0"'
+      - '"10bd944b0a7af4ecfc1fc3b37e049c47"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
       - request_method=PUT; path=/
       X-Request-Id:
-      - fac33722-9476-49c6-afeb-e8cb24c02e25
+      - 720b793d-e408-4f2a-9624-080cbd6d70da
       X-Runtime:
-      - '0.223449'
+      - '0.273207'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":2,"username":"updated_username","created_at":"2015-01-08T05:02:06.362Z","updated_at":"2015-01-08T05:02:06.719Z"}'
+      string: '{"id":2,"created_at":"2015-01-16T05:15:52.490Z","updated_at":"2015-01-16T05:15:52.971Z"}'
     http_version: 
-  recorded_at: Thu, 08 Jan 2015 05:02:06 GMT
+  recorded_at: Fri, 16 Jan 2015 05:15:53 GMT
 recorded_with: VCR 2.9.3

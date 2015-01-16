@@ -18,11 +18,11 @@ module Authenticator
 
       protected
 
-      def request_authentication(account)
+      def request_authentication(params)
         uri = authenticate_path
         response = RestClient.post(
           uri,
-          auth_params.merge(account: account.to_h).to_json,
+          auth_params.merge(account: params).to_json,
           content_type: :json,
           accept: :json
         )
