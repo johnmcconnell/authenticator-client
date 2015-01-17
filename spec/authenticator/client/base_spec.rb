@@ -70,7 +70,7 @@ describe Authenticator::Client::Base do
   describe '#authenticate' do
     it 'creates an account' do
       VCR.use_cassette('authenticate_success') do
-        response = subject.authenticate({ id: 4, password: 'new_password' })
+        response = subject.authenticate(id: 4, password: 'new_password')
 
         expect(response.json['authenticated']).to eq true
         expect(response.authenticated?).to eq true
