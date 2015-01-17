@@ -5,7 +5,7 @@ http_interactions:
     uri: http://account-authenticator.herokuapp.com/api/v1/accounts
     body:
       encoding: UTF-8
-      string: '{"api_key":"apptest","api_password":"password","account":{"id":2,"password":"new_password_2"}}'
+      string: '{"api_key":"apptest","api_password":"password","account":{"account":{"id":2,"password":"new_password_2"}}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '94'
+      - '106'
       User-Agent:
       - Ruby
   response:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 16 Jan 2015 05:15:53 GMT
+      - Sat, 17 Jan 2015 19:01:21 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -37,27 +37,27 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"39641cdebb7b665a5a56a8041380ad3f"'
+      - '"060a243d78ce0d2a5c20e96bdc7a701c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
       - request_method=POST; path=/
       X-Request-Id:
-      - 9fe21a48-2f7f-41e5-9a3b-34d2ed38819e
+      - 94958e43-f422-47ce-aad0-d77eaedf755a
       X-Runtime:
-      - '0.492874'
+      - '0.109178'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":3,"created_at":"2015-01-16T05:15:53.629Z","updated_at":"2015-01-16T05:15:53.629Z"}'
+      string: '{"id":8,"created_at":"2015-01-17T19:01:22.837Z","updated_at":"2015-01-17T19:01:22.837Z"}'
     http_version: 
-  recorded_at: Fri, 16 Jan 2015 05:15:54 GMT
+  recorded_at: Sat, 17 Jan 2015 19:01:22 GMT
 - request:
     method: delete
-    uri: http://account-authenticator.herokuapp.com/api/v1/accounts/3?api_key=apptest&api_password=password
+    uri: http://account-authenticator.herokuapp.com/api/v1/accounts/8?api_key=apptest&api_password=password
     body:
       encoding: US-ASCII
       string: ''
@@ -76,7 +76,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 16 Jan 2015 05:15:53 GMT
+      - Sat, 17 Jan 2015 19:01:25 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -88,22 +88,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"a7f153d21e6c7effbc234f3242315d32"'
+      - '"1fc83a09a651f5bf02e3e01064becce9"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
       - request_method=DELETE; path=/
       X-Request-Id:
-      - 35b9965b-7148-4f29-9cc0-00ecac420fda
+      - beab8fbc-26d9-4298-abc7-37f31e21fd0d
       X-Runtime:
-      - '0.129940'
+      - '3.581902'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":3}'
+      string: '{"id":8}'
     http_version: 
-  recorded_at: Fri, 16 Jan 2015 05:15:54 GMT
+  recorded_at: Sat, 17 Jan 2015 19:01:26 GMT
 recorded_with: VCR 2.9.3

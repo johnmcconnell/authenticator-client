@@ -57,7 +57,7 @@ describe Authenticator::Client::Base do
     Authenticator::Client.new(:test)
   end
 
-  describe '#all' do
+  describe '#index' do
     it 'fetches all the accounts' do
       VCR.use_cassette('all_success') do
         response = subject.index.json
@@ -78,8 +78,8 @@ describe Authenticator::Client::Base do
         account = response.account
 
         expect(account.id).to be 4
-        expect(account.created_at).to eq '2015-01-08T05:02:05.699Z'
-        expect(account.updated_at).to eq '2015-01-08T05:02:05.699Z'
+        expect(account.created_at).not_to be nil
+        expect(account.updated_at).not_to be nil
       end
     end
   end
@@ -103,8 +103,8 @@ describe Authenticator::Client::Base do
         json = response.json
 
         expect(json['id']).to be 1
-        expect(json['created_at']).to eq '2015-01-08T05:02:05.699Z'
-        expect(json['updated_at']).to eq '2015-01-08T05:02:05.699Z'
+        expect(response['created_at']).not_to be nil
+        expect(response['updated_at']).not_to be nil
       end
     end
   end

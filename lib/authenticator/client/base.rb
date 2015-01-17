@@ -5,6 +5,12 @@ require_relative 'authenticate_response'
 module Authenticator
   module Client
     class Base < JsonClient::Base
+      serializers do |s|
+        s.on :create, :update, :destroy,
+          use: JsonClient::ModelSerializer.new(model_name: 'account')
+        s.on :index, :show, use: JsonClient::EmptySerializer.new
+      end
+
       def initialize(config, account)
         super(
           JsonClient::Pather.new(config[:host], 'api/v1', 'accounts'),
